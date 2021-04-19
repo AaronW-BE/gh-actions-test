@@ -29,6 +29,13 @@ jobs:
     - run: npm run build --if-present
     - run: npm test
 
+    - name: Build the Docker image
+      run: |
+        docker login --username=${{ secrets.ALIYUN_USERNAME }} registry.cn-hangzhou.aliyuncs.com --password=${{ secrets.ALIYUN_PASSWORD }}
+        docker build -t koa-actions:latest .
+        docker tag koa-actions registry.cn-hangzhou.aliyuncs.com/aaronwb/koa-actions:latest
+        docker push registry.cn-hangzhou.aliyuncs.com/aaronwb/koa-actions:latest
+    - run: echo "Push Docker Image success"
     - name: Create Release
       id: create_release
       uses: actions/create-release@latest
@@ -37,10 +44,7 @@ jobs:
       with:
         tag_name:       ${{ github.ref }}
         release_name:   Release ${{ github.ref }}
-        body: |
-          Changes in this Release
-          - First Change
-          - Second Change
+#        body: |
 
         draft: false
         prerelease: false
