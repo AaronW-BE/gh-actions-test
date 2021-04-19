@@ -28,3 +28,19 @@ jobs:
     - run: npm install
     - run: npm run build --if-present
     - run: npm test
+
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@latest
+      env:
+        GITHUB_TOKEN:   ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name:       ${{ github.ref }}
+        release_name:   Release ${{ github.ref }}
+        body: |
+          Changes in this Release
+          - First Change
+          - Second Change
+
+        draft: false
+        prerelease: false
