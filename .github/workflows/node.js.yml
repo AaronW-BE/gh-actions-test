@@ -28,7 +28,7 @@ jobs:
 
     - name: Build the Docker image
       run: |
-        docker login --username=${{ secrets.ALIYUN_USERNAME }} registry.cn-hangzhou.aliyuncs.com --password=${{ secrets.ALIYUN_PASSWORD }}
+        echo ${{ALIYUN_PASSWORD}} | docker login --username=${{ secrets.ALIYUN_USERNAME }} registry.cn-hangzhou.aliyuncs.com --password=stdin
         docker build -t koa-actions:latest .
         docker tag koa-actions registry.cn-hangzhou.aliyuncs.com/aaronwb/koa-actions:latest
         docker push registry.cn-hangzhou.aliyuncs.com/aaronwb/koa-actions:latest
