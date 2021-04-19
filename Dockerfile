@@ -1,4 +1,12 @@
-FROM nginx
-COPY ./dist/ /usr/share/nginx/html/
-COPY ./docker/vhost.nginx.conf /etc/nginx/conf.d/nginx-koa.conf
-EXPOSE 80
+FROM node:latest
+
+RUN mkdir -p /home/www/node
+WORKDIR /home/www/node
+COPY . /home/www/node
+
+RUN npm install
+
+EXPOSE 3000
+
+ENTRYPOINT ["npm", "run"]
+CMD ["start"]

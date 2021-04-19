@@ -1,6 +1,3 @@
-# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
-
 name: Node.js CI
 
 on:
@@ -36,6 +33,7 @@ jobs:
         docker tag koa-actions registry.cn-hangzhou.aliyuncs.com/aaronwb/koa-actions:latest
         docker push registry.cn-hangzhou.aliyuncs.com/aaronwb/koa-actions:latest
     - run: echo "Push Docker Image success"
+
     - name: Create Release
       id: create_release
       uses: actions/create-release@latest
