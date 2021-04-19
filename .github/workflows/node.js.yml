@@ -32,7 +32,6 @@ jobs:
         docker build -t koa-actions:latest .
         docker tag koa-actions registry.cn-hangzhou.aliyuncs.com/aaronwb/koa-actions:latest
         docker push registry.cn-hangzhou.aliyuncs.com/aaronwb/koa-actions:latest
-    - run: echo "Push Docker Image success"
 
     - name: Create Release
       id: create_release
