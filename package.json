@@ -1,0 +1,32 @@
+{
+  "name": "koa-actions",
+  "version": "1.0.0",
+  "description": "a koajs ci test on github action",
+  "main": "index.js",
+  "scripts": {
+    "start": "node .",
+    "test": "mocha --exit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/AaronW-BE/koa-gh-actions.git"
+  },
+  "keywords": [
+    "koajs",
+    "gh-actions"
+  ],
+  "author": "AaronW",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AaronW-BE/koa-gh-actions/issues"
+  },
+  "homepage": "https://github.com/AaronW-BE/koa-gh-actions#readme",
+  "dependencies": {
+    "koa": "^2.13.1"
+  },
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^8.3.2",
+    "supertest": "^6.1.3"
+  }
+}
